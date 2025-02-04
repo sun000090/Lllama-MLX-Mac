@@ -8,12 +8,11 @@ logs = Logger.logger_init()
 class csv_creator:
     def read_table(csv_file):
         try:
-            table = pd.read_csv(csv_file)
-            columns_list = table.columns.tolist()
-            table_list = table.fillna(0).to_numpy().tolist()
-            fin_table = columns_list + table_list
+            table = pd.read_csv(csv_file, header=None)
+            table['prompt'] = table.fillna(0.0).astype('str').agg(', '.join, axis=1)
+            table_list = ', '.join(table['prompt'])
             logs.info('Financial data read')
-            return fin_table
+            return table_list
         except Exception as e:
             logs.info(f'Error in reading csv files: {e}')
             return None

@@ -1,1 +1,2 @@
-mlx_lm
+mlx_lm==0.20.6
+datasets
