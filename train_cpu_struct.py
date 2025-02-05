@@ -61,7 +61,7 @@ class TrainModel:
 
             # Lora config
             lora_config = {
-            "lora_layers": 7,
+            "num_layers": 7,
             "lora_parameters": {
                 "rank": 8,
                 "scale": 16.0,
