@@ -12,8 +12,8 @@ loc2 = 'Training_Answer/*.txt'
 training_data = csv_creator.data_creator(loc1=loc1,loc2=loc2)
 
 ### Preprocess dataset
-train_set = TrainModel.preprocess_fin(training_data['train'])
-test_set = TrainModel.preprocess_fin(training_data['test'])
+train_set = TrainModel.preprocess(training_data['train'])
+test_set = TrainModel.preprocess(training_data['test'])
 
 ### Initialize and train model
 model_name1 = 'unsloth/Llama-3.2-3B-Instruct' #Llama
