@@ -46,7 +46,7 @@ class TrainModel:
         try:
             data_set_ = map(TrainModel.preprocess, data_set)
             logs.info('Dataset preprocessed')
-            return data_set
+            return data_set_
         except Exception as e:
             logs.info(f'Dataset preprocessing error {e}')
             return None
