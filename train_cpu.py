@@ -3,6 +3,7 @@ import glob
 from logger import Logger
 from dataset import Dataset
 from train_cpu_struct import TrainModel
+import subprocess
 
 logs = Logger.logger_init()
 
@@ -22,10 +23,11 @@ trainingSave = TrainModel.train_model(model_name_=model_name1, dataset1 = train_
                                            dataset2 = test_set, seq_length=1024)
 
 ### Check for adapters saved or not 
-!ls adapters/
+subprocess.run('ls adapters/',shell=True)
 
 ### Fuse the adaptors
-!mlx_lm.fuse --model {model_name1}
+subprocess.run('mlx_lm.fuse --model {model_name1}',shell=True)
 
 ### Quantize and save
-!mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q
+subprocess.run('mlx_lm.convert --hf-path {'fused_model'} --mlx-path {'fused_model_4bit'} -q',shell=True)
+subprocess.run('mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q',shell=True)
