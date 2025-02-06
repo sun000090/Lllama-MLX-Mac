@@ -4,7 +4,7 @@ from mlx_lm import load, generate
 from dataset import csv_creator
 
 ### Initialize model for inference
-model_name1 = 'unsloth' #Llama
+model_name1 = 'unsloth/Llama-3.2-3B-Instruct' #Llama
 model_name2 = 'fused_model_4bit' #Fused model
 
 ### Load file
