@@ -93,7 +93,7 @@ class TrainModel:
             model.freeze()
 
             # Convert linear layers to lora layers
-            linear_to_lora_layers(model, lora_config["lora_layers"], lora_config["lora_parameters"])
+            linear_to_lora_layers(model, lora_config["num_layers"], lora_config["lora_parameters"])
             logs.info('Lora loaded')
 
             # Number of training parameters
