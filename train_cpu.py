@@ -29,5 +29,5 @@ subprocess.run('ls adapters/',shell=True)
 subprocess.run('mlx_lm.fuse --model {model_name1}',shell=True)
 
 ### Quantize and save
-subprocess.run('mlx_lm.convert --hf-path {'fused_model'} --mlx-path {'fused_model_4bit'} -q',shell=True)
-subprocess.run('mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q',shell=True)
+subprocess.run("mlx_lm.convert --hf-path {'fused_model'} --mlx-path {'fused_model_4bit'} -q",shell=True)
+subprocess.run("mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q",shell=True)
