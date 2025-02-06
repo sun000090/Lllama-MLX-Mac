@@ -26,8 +26,10 @@ trainingSave = TrainModel.train_model(model_name_=model_name1, dataset1 = train_
 subprocess.run('ls adapters/',shell=True)
 
 ### Fuse the adaptors
-subprocess.run('mlx_lm.fuse --model {model_name1}',shell=True)
+subprocess.run(f'mlx_lm.fuse --model {model_name1}',shell=True)
 
+fused_loc = 'fused_model'
+fused_loc_4bit = 'fused_model_4bit'
 ### Quantize and save
-subprocess.run("mlx_lm.convert --hf-path {'fused_model'} --mlx-path {'fused_model_4bit'} -q",shell=True)
-subprocess.run("mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q",shell=True)
+subprocess.run(f"mlx_lm.convert --hf-path {fused_loc} --mlx-path {fused_loc_4bit} -q",shell=True)
+subprocess.run(f"mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q",shell=True)
