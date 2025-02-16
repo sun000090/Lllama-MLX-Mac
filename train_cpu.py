@@ -40,5 +40,5 @@ except Exception as e:
 subprocess.run(f'mlx_lm.fuse --model {model_name1}',shell=True)
 
 ### Quantize and save
-subprocess.run(f"mlx_lm.convert --hf-path {fused_loc} --mlx-path {fused_loc_4bit} -q",shell=True)
-subprocess.run(f"mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} -q",shell=True)
+subprocess.run(f"mlx_lm.convert --hf-path {fused_loc} --mlx-path {fused_loc_4bit} --quantize --q-group-size {64} --q-bits {8}",shell=True)
+subprocess.run(f"mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name1} --quantize --q-group-size {64} --q-bits {8}", shell=True)
