@@ -6,7 +6,7 @@ logs = Logger.logger_init()
 
 ### Load models and dequantize
 model_name1 = 'unsloth/Llama-3.2-1B-Instruct' #Llama
-model_name2 = 'unsloth/Llama-3.2-1B-Instruct_32bit' #Dequnatized model
+model_name2 = 'unsloth/Llama-3.2-1B-Instruct_32bit' #Dequantized model
 model_name3 = f"{model_name2}.gguf" # gguf model
 
 ### Delete any existing folder
@@ -16,7 +16,7 @@ try:
 except Exception as e:
     pass
 
-### Save a dequantize version
+### Save a dequantized version
 subprocess.run(f"mlx_lm.convert --hf-path {model_name1} --mlx-path {model_name2} -d",shell=True)
 
 ### Install llama.cpp
